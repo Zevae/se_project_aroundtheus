@@ -20,6 +20,11 @@
   width: 24px;
   border: 1px solid #ffffff;
   grid-area: button;
+  cursor: url(../images/cursor.png), auto;
+}
+
+.profile__edit-button:hover {
+  opacity: 30%;
 }
 
 .profile__add-button {
@@ -29,6 +34,11 @@
   width: 150px;
   margin-left: auto;
   border: 2px solid #ffffff;
+  cursor: url(../images/cursor.png), auto;
+}
+
+.profile__add-button:hover {
+  opacity: 30%;
 }
 
 .profile__title {

@@ -1,10 +1,5 @@
 .header {
   margin-top: 45px;
-}
-
-.header__line {
-  max-width: 100%;
-  border: 1px solid #545454;
-  opacity: 70%;
-  margin-top: 40px;
+  padding-bottom: 40px;
+  border-bottom: solid rgb(84 84 84 / 0.7);
 }

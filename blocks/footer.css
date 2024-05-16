@@ -8,7 +8,7 @@
   line-height: 21.78px;
   color: #545454;
   max-width: 318px;
-  height: 18px;
+  min-height: 18px;
   box-sizing: border-box;
   margin: 70px 85px 60px;
   padding: 0;
