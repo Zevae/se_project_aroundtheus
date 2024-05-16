@@ -3,3 +3,10 @@
   padding-bottom: 40px;
   border-bottom: solid rgb(84 84 84 / 0.7);
 }
+
+.header__logo {
+  height: 33px;
+  width: 173px;
+  margin: 0;
+  padding: 0;
+}

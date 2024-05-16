@@ -1,40 +1,15 @@
-@media screen and (max-width: 800px) {
-  .header {
-    margin: 40px 60px 0;
-    padding-left: 0;
-  }
-
-  .profile {
-    margin-left: 60px;
-    margin-right: 50px;
-  }
-
-  .profile__title {
-    max-width: 200px;
-    font-size: 30px;
-  }
-
-  .profile__info {
-    grid-template-columns: repeat(auto-fit, 282px);
-  }
-
-  .profile__edit-button {
-    margin: 10px 0 0;
-  }
-
-  .profile__add-button {
-    margin-left: inherit;
-    padding: 0;
-  }
-}
-
 @media screen and (max-width: 320px) {
   .header {
-    margin: 0;
+    margin: 28px 0 0;
+  }
+
+  .header__logo {
+    margin-left: 27px;
   }
 
   .profile {
     flex-direction: column;
+    margin: 0;
   }
 
   .profile__image {
