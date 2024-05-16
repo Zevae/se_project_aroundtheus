@@ -33,6 +33,9 @@
   height: 50px;
   width: 150px;
   margin-left: auto;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
   border: 2px solid #ffffff;
   cursor: url(../images/cursor.png), auto;
 }
