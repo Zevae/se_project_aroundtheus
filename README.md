@@ -45,7 +45,7 @@ The footer is the only part of the project where I felt a lot could be added to 
 This has been the most difficult project yet, this experience makes me anxious for future projects, but also immensely excited to learn new skills! Thank you to the TripleTen team for guiding and helping me through this!
 
 **Video link of this Project**
---Will make this once the code passes--
+https://drive.google.com/file/d/1Z6MVICxD-RPWHPkb82AUPaoBsgLHTW11/view?usp=sharing
 
 **GitHub Link for this project**
 https://github.com/Zevae/se_project_aroundtheus
