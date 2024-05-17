@@ -10,7 +10,8 @@
 - Cards
 - Footer
 - Summary of Experience
-- Video of Project
+- Video Link of This Project
+- GitHub Link of This Project
 
 **Intro**
 
@@ -43,5 +44,8 @@ The footer is the only part of the project where I felt a lot could be added to 
 **Summary of Experience**
 This has been the most difficult project yet, this experience makes me anxious for future projects, but also immensely excited to learn new skills! Thank you to the TripleTen team for guiding and helping me through this!
 
-**Video of Project**
+**Video link of this Project**
 --Will make this once the code passes--
+
+**GitHub Link for this project**
+https://github.com/Zevae/se_project_aroundtheus

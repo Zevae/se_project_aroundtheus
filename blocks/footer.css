@@ -16,3 +16,20 @@
   margin: 0;
   padding: 0;
 }
+
+@media screen and (min-width: 1280px) {
+  .footer {
+    align-self: center;
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .footer {
+    margin: 48px 19px 36px;
+  }
+
+  .footer__copyright {
+    font-size: 14px;
+  }
+}

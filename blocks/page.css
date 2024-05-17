@@ -1,6 +1,8 @@
 .page {
   background-color: black;
   color: #ffffff;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .page__section {

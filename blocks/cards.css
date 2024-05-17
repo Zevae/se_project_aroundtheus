@@ -2,7 +2,6 @@
   font-family: Inter, Arial, sans-serif;
   text-overflow: ellipsis;
   font-weight: 900;
-  margin-top: 30px;
 }
 
 .cards__list {
@@ -12,4 +11,16 @@
   grid-gap: 20px 17px;
   padding: 0;
   margin: 0;
+}
+
+@media screen and (max-width: 800px) {
+  .cards {
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .cards {
+    margin-top: 36px;
+  }
 }
