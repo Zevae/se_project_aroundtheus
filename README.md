@@ -48,4 +48,4 @@ This has been the most difficult project yet, this experience makes me anxious f
 https://drive.google.com/file/d/1Z6MVICxD-RPWHPkb82AUPaoBsgLHTW11/view?usp=sharing
 
 **GitHub Link for this project**
-https://github.com/Zevae/se_project_aroundtheus
+https://zevae.github.io/se_project_aroundtheus/

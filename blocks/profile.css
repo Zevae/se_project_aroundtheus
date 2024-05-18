@@ -55,6 +55,7 @@
   white-space: nowrap;
   overflow: hidden;
   max-width: 373px;
+  min-height: 48px;
   grid-area: title;
   margin: 0;
 }
@@ -84,17 +85,21 @@
 
 @media screen and (max-width: 800px) {
   .profile {
-    margin-left: 60px;
-    margin-right: 50px;
+    max-width: 100%;
+    margin: auto;
   }
 
   .profile__title {
-    max-width: 200px;
-    font-size: 30px;
+    max-width: 100%;
+    font-size: 28px;
   }
 
   .profile__info {
     grid-template-columns: repeat(auto-fit, 282px);
+  }
+
+  .profile__image {
+    margin-left: 50px;
   }
 
   .profile__edit-button {
@@ -102,19 +107,46 @@
   }
 
   .profile__add-button {
-    margin-left: inherit;
+    margin: auto;
     padding: 0;
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 621px) {
   .profile {
-    flex-direction: column;
+    display: grid;
+    justify-content: center;
     margin: 0;
   }
 
+  .profile__title {
+    justify-self: center;
+    font-size: 24px;
+  }
+
+  .profile__description {
+    justify-self: center;
+  }
+
   .profile__image {
+    justify-self: center;
+  }
+
+  .profile__add-button {
+    justify-self: center;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .profile {
+    flex-direction: column;
     margin: 0;
+    padding-top: 42px;
+  }
+
+  .profile__image {
+    margin-left: 101px;
+    margin-right: 99px;
   }
 
   .profile__title {
@@ -123,7 +155,8 @@
     font-weight: 500;
     line-height: 26.63px;
     text-align: center;
-    margin-top: 35px;
+    margin-top: 30px;
+    margin-left: 42px;
   }
 
   .profile__info {
@@ -135,22 +168,28 @@
   }
 
   .profile__description {
-    max-width: 100%;
+    max-width: 282px;
+    min-height: 14px;
     text-align: center;
-    margin: 10px 19px 36px;
+    margin-top: 14px;
+    margin-left: 19px;
+    margin-right: 19px;
+    font-size: 14px;
   }
 
   .profile__edit-button {
     width: 18px;
     height: 18px;
-    margin-top: 38px;
+    margin-top: 34px;
     margin-left: 10px;
+    margin-right: 34px;
   }
 
   .profile__add-button {
     padding: 0;
     width: 282px;
     min-height: 50px;
+    margin-top: 36px;
     margin-left: 19px;
     margin-right: 19px;
   }

@@ -13,12 +13,6 @@
   margin: 0;
 }
 
-@media screen and (min-width: 1280px) {
-  .cards {
-    margin-top: 50px;
-  }
-}
-
 @media screen and (min-width: 800px) {
   .cards {
     margin-top: 50px;
