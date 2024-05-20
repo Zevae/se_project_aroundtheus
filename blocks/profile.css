@@ -167,7 +167,7 @@
   .profile {
     flex-direction: column;
     margin: 0;
-    padding-top: 42px;
+    padding: 0;
   }
 
   .profile__image {
@@ -176,14 +176,13 @@
   }
 
   .profile__title {
-    max-width: 196px;
-    height: 22px;
+    max-width: 210px;
     font-size: 22px;
     font-weight: 500;
-    line-height: 26.63px;
+    line-height: 50px;
     text-align: center;
-    margin-top: 30px;
-    margin-left: 42px;
+    margin-top: 20px;
+    margin-left: 59px;
   }
 
   .profile__info {
@@ -198,9 +197,9 @@
     max-width: 282px;
     min-height: 14px;
     text-align: center;
-    margin-top: 0;
-    margin-left: 19px;
+    margin-left: 15px;
     margin-right: 19px;
+    padding-bottom: 20px;
     font-size: 14px;
     line-height: 16.94px;
   }
@@ -208,8 +207,8 @@
   .profile__edit-button {
     width: 18px;
     height: 18px;
-    margin-top: 34px;
-    margin-left: 10px;
+    margin-top: 36px;
+    margin-left: 11px;
     margin-right: 34px;
   }
 
@@ -217,7 +216,7 @@
     padding: 0;
     width: 282px;
     min-height: 50px;
-    margin-top: 36px;
+    margin-top: 14px;
     margin-left: 19px;
     margin-right: 19px;
   }
