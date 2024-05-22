@@ -1,9 +1,11 @@
 .footer {
-  max-width: 318px;
+  max-width: 880px;
+  width: 100%;
   min-height: 18px;
   box-sizing: border-box;
   margin-top: 67px;
-  margin-left: 200px;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 60px;
 }
 
@@ -17,20 +19,14 @@
   padding: 0;
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (max-width: 880px) {
   .footer {
-    margin-top: 67px;
-    margin-left: 200px;
-    margin-bottom: 60px;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .footer {
-    margin: 48px 19px 36px;
+    width: 100%;
+    margin: 48px auto 36px;
   }
 
   .footer__copyright {
-    font-size: 14px;
+    max-width: 282px;
+    font-size: 18px;
   }
 }
