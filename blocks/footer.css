@@ -22,11 +22,20 @@
 @media screen and (max-width: 880px) {
   .footer {
     width: 100%;
-    margin: 48px auto 36px;
+    margin-top: 48px;
+    margin-left: 19px;
+    margin-bottom: 36px;
   }
 
   .footer__copyright {
     max-width: 282px;
-    font-size: 18px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .footer__copyright {
+    max-width: 282px;
+    font-size: 14px;
   }
 }
