@@ -33,7 +33,8 @@ const cardTemplate = document
 const cardWrap = document.querySelector(".cards__list");
 const profileEditModal = document.querySelector("#edit-modal");
 const addCardModal = document.querySelector("#add-modal");
-const profileFormElement = document.querySelector(".modal__form");
+const profileFormElement = document.querySelector("#edit-profile-form");
+const addCardFormElement = document.querySelector("#add-card-form");
 
 // DOM nodes
 const profileEditBtn = document.querySelector("#profile-edit-btn");
@@ -44,8 +45,12 @@ const profileDescription = document.querySelector(".profile__description");
 const addNewCardButton = document.querySelector(".profile__add-button");
 
 // Form data
-const nameInput = profileFormElement.querySelector(".modal__input-type-name");
-const jobInput = document.querySelectorAll(".modal__input-type-description");
+const nameInput = profileFormElement.querySelector(".modal__input_type_name");
+const jobInput = profileFormElement.querySelector(
+  ".modal__input_type_description"
+);
+/*const nameInput = profileFormElement.querySelector(".modal__input-type-name");
+const jobInput = document.querySelectorAll(".modal__input-type-description");*/
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
@@ -75,7 +80,7 @@ function getCardElement(cardData) {
   });
 
   likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle(".card__like-button_active");
+    likeButton.classList.toggle("card__like-button_active");
   });
 
   cardImage.src = cardData.link;
@@ -85,8 +90,19 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
+function handleAddCardSubmit(evt) {
+  evt.preventDefault();
+  const title = addCardFormElement.querySelector(
+    ".modal__input_type_title"
+  ).value;
+  const link = addCardFormElement.querySelector(".modal__input_type_url").value;
+  cardWrap.prepend(getCardElement({ name: title, link: link }));
+  closeModal(addCardModal);
+}
+
 // Form listeners
 profileFormElement.addEventListener("submit", handleProfileEditSubmit);
+addCardFormElement.addEventListener("submit", handleAddCardSubmit);
 profileEditBtn.addEventListener("click", () => {
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileDescription.textContent;
