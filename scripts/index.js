@@ -49,8 +49,6 @@ const nameInput = profileFormElement.querySelector(".modal__input_type_name");
 const jobInput = profileFormElement.querySelector(
   ".modal__input_type_description"
 );
-/*const nameInput = profileFormElement.querySelector(".modal__input-type-name");
-const jobInput = document.querySelectorAll(".modal__input-type-description");*/
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
