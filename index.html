@@ -84,11 +84,25 @@
             name="url"
             placeholder="Image URL"
           />
-          <button class="modal__save-btn">Save</button>
+          <button class="modal__save-btn">Create</button>
         </form>
       </div>
     </div>
-
+    <div class="modal" id="image-modal">
+      <div class="modal__container modal__container--image">
+        <button
+          class="modal__close modal__close--image"
+          id="modal-close-btn"
+        ></button>
+        <img
+          class="modal__image"
+          id="modal-image"
+          src=""
+          alt="Expanded Image"
+        />
+        <h3 class="modal__description" id="modal-image-description"></h3>
+      </div>
+    </div>
     <template id="card-template">
       <li class="card">
         <img src="" alt="" class="card__image" />

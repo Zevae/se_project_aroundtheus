@@ -9,18 +9,34 @@
   bottom: 0;
   right: 0;
   z-index: 999;
+  opacity: 0;
+  transition: opacity 0.5s ease, visibility 0s 0.5s;
+}
+
+.modal_visible {
+  visibility: visible;
+  transition-delay: 0s;
 }
 
 .modal_opened {
   display: flex;
+  opacity: 1;
 }
 
 .modal__container {
-  background-color: #fff;
+  background-color: #ffffff;
   position: relative;
   margin: auto;
   padding: 36px;
   border-radius: 10px;
+  max-width: 75vw;
+  max-height: 75vh;
+}
+
+.modal__container--image {
+  background-color: transparent;
+  max-width: 70vw;
+  max-height: 70vh;
 }
 
 .modal__close {
@@ -35,6 +51,25 @@
   bottom: calc(100% + 5px);
   left: calc(100% + 5px);
   border: none;
+}
+
+.modal__close--image {
+  bottom: calc(100% - 30px);
+  left: calc(100% - 30px);
+}
+
+.modal__image {
+  max-width: 100%;
+  max-height: 70vh;
+  display: block;
+}
+
+.modal__description {
+  color: #ffffff;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 10px;
 }
 
 .modal__form {
