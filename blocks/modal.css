@@ -1,7 +1,7 @@
 .modal {
   background-color: rgba(0, 0, 0, 0.5);
   color: #000;
-  display: none;
+  display: flex;
   position: fixed;
   padding: 0 19px;
   top: 0;
@@ -9,18 +9,15 @@
   bottom: 0;
   right: 0;
   z-index: 999;
+  visibility: hidden;
   opacity: 0;
-  transition: opacity 0.5s ease, visibility 0s 0.5s;
-}
-
-.modal_visible {
-  visibility: visible;
-  transition-delay: 0s;
+  transition: all 0.3s ease-in-out;
 }
 
 .modal_opened {
-  display: flex;
   opacity: 1;
+  visibility: visible;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal__container {
@@ -29,8 +26,8 @@
   margin: auto;
   padding: 36px;
   border-radius: 10px;
-  max-width: 75vw;
-  max-height: 75vh;
+  max-width: 70vw;
+  max-height: 70vh;
 }
 
 .modal__container--image {
