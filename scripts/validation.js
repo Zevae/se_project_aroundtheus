@@ -36,13 +36,11 @@ function hasInvalidInput(inputList) {
   return !inputList.every((inputElement) => inputElement.validity.valid);
 }
 
-// disableButton
 function disableButton(buttonElement, { inactiveButtonClass }) {
   buttonElement.classList.add(inactiveButtonClass);
   buttonElement.disabled = true;
 }
 
-// enableButton
 function enableButton(buttonElement, { inactiveButtonClass }) {
   buttonElement.classList.remove(inactiveButtonClass);
   buttonElement.disabled = false;
