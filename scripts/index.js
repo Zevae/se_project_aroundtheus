@@ -36,8 +36,8 @@ const addCardModal = document.querySelector("#add-modal");
 const imageModal = document.querySelector("#image-modal");
 
 // Forms elements
-const profileFormElement = document.querySelector("#edit-profile-form");
-const addCardFormElement = document.querySelector("#add-card-form");
+const profileFormElement = document.forms["edit-profile-form"];
+const addCardFormElement = document.forms["add-card-form"];
 const nameInput = profileFormElement.querySelector(".modal__input_type_name");
 const jobInput = profileFormElement.querySelector(
   ".modal__input_type_description"
@@ -60,11 +60,13 @@ const modalImageDescription = document.querySelector(
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", handleEscKey);
+  modal.removeEventListener("mousedown", handleOverlayClick);
 }
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", handleEscKey);
+  modal.addEventListener("mousedown", handleOverlayClick);
 }
 
 function handleEscKey(event) {
@@ -73,6 +75,12 @@ function handleEscKey(event) {
     if (openModal) {
       closeModal(openModal);
     }
+  }
+}
+
+function handleOverlayClick(event) {
+  if (event.target.classList.contains("modal_opened")) {
+    closeModal(event.target);
   }
 }
 
