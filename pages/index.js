@@ -28,18 +28,6 @@ const initialCards = [
   },
 ];
 
-const cardData = {
-  name: "Yosemite Valley",
-  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-};
-
-const card = new Card(cardData, "#card-template");
-card.getView();
-
-const cardTemplate = document
-  .querySelector("#card-template")
-  .content.querySelector(".card");
-
 const cardWrap = document.querySelector(".cards__list");
 const profileEditModal = document.querySelector("#edit-modal");
 const addCardModal = document.querySelector("#add-modal");
@@ -110,32 +98,7 @@ function openImageModal(src, description) {
   openModal(imageModal);
 }
 
-  function getCardElement(cardData) {
-   const cardElement = cardTemplate.cloneNode(true);
-   const cardImage = cardElement.querySelector(".card__image");
-   const cardTitle = cardElement.querySelector(".card__title");
-   const likeButton = cardElement.querySelector(".card__like-button");
-   const deleteButton = cardElement.querySelector(".card__trash-button");
-
-   deleteButton.addEventListener("click", () => {
-     cardElement.remove();
-   });
-
-   likeButton.addEventListener("click", () => {
-     likeButton.classList.toggle("card__like-button_active");
-   });
-
-   cardImage.src = cardData.link;
-   cardImage.alt = cardData.name;
-   cardTitle.textContent = cardData.name;
-
-   cardImage.addEventListener("click", () =>
-     openImageModal(cardData.link, cardData.name)
-   );
-
-   return cardElement;
- }
-
+// Render initial cards
 initialCards.forEach((cardData) => {
   const card = new Card(cardData, "#card-template", openImageModal);
   cardWrap.prepend(card.getView());
@@ -166,8 +129,8 @@ function handleAddCardSubmit(evt) {
   const urlInput = addCardFormElement.querySelector(".modal__input_type_url");
   const title = titleInput.value;
   const link = urlInput.value;
-  const newCard = getCardElement({ name: title, link: link });
-  cardWrap.prepend(newCard);
+  const newCard = new Card({ name: title, link: link }, "#card-template", openImageModal);
+  cardWrap.prepend(newCard.getView());
   titleInput.value = "";
   urlInput.value = "";
   addCardFormValidator.resetValidation();
