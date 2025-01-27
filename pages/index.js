@@ -1,5 +1,5 @@
 import Card from "../components/Card.js";
-import { FormValidator } from "../components/FormValidator.js";
+import FormValidator from '../components/FormValidator.js';
 
 const initialCards = [
   {
@@ -43,8 +43,8 @@ const profileDescription = document.querySelector(".profile__description");
 
 const config = {
   inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__save_button",
-  inactiveButtonClass: "modal__save_button_disabled",
+  submitButtonSelector: ".modal__save--button",
+  inactiveButtonClass: "modal__save_button--disabled",
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
@@ -98,7 +98,6 @@ function openImageModal(src, description) {
   openModal(imageModal);
 }
 
-// Render initial cards
 initialCards.forEach((cardData) => {
   const card = new Card(cardData, "#card-template", openImageModal);
   cardWrap.prepend(card.getView());

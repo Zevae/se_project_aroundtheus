@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="author" content="Monique Bensch" />
     <link rel="stylesheet" href="./pages/index.css" />
     <link rel="icon" type="image/x-icon" href="./favicon.ico" />
@@ -12,12 +12,9 @@
   <body class="page">
     <div class="page__content">
       <header class="header page__section">
-        <img
-          class="header__logo"
-          src="./images/logo.svg"
-          alt="Around The U.S"
-        />
+        <img class="header__logo" src="./images/logo.svg" alt="Around The U.S" />
       </header>
+
       <main class="content">
         <section class="profile page__section">
           <img
@@ -27,27 +24,26 @@
           />
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
-            <button
-              class="profile__edit-button"
-              id="profile-edit-btn"
-              type="button"
-            ></button>
+            <button class="profile__edit-button" id="profile-edit-btn" type="button"></button>
             <p class="profile__description">Explorer</p>
           </div>
           <button class="profile__add-button" type="button"></button>
         </section>
+
         <section class="cards page__section">
           <ul class="cards__list"></ul>
         </section>
       </main>
+
       <footer class="footer">
         <p class="footer__copyright">© 2022 Around The U.S.</p>
       </footer>
     </div>
+
     <div class="modal" id="edit-modal">
       <div class="modal__container">
-        <button class="modal__close" id="modal-close-btn"></button>
-        <h3 class="modal__heading">Edit profile</h3>
+        <button class="modal__close" data-modal-close></button>
+        <h3 class="modal__heading">Edit Profile</h3>
         <form class="modal__form" id="edit-profile-form" novalidate>
           <input
             class="modal__input modal__input_type_name"
@@ -72,7 +68,7 @@
           />
           <span class="modal__error" id="profile-description-error"></span>
           <button
-            class="modal__save_button"
+            class="modal__save--button"
             id="edit-save-btn"
             type="submit"
             disabled
@@ -82,9 +78,10 @@
         </form>
       </div>
     </div>
+
     <div class="modal" id="add-modal">
       <div class="modal__container">
-        <button class="modal__close" id="modal-close-btn"></button>
+        <button class="modal__close" data-modal-close></button>
         <h3 class="modal__heading">New Place</h3>
         <form class="modal__form" id="add-card-form">
           <input
@@ -93,25 +90,22 @@
             type="text"
             name="title"
             placeholder="Title"
-            required
             minlength="1"
             maxlength="30"
+            required
           />
           <span class="modal__error" id="image-name-error"></span>
           <input
             class="modal__input modal__input_type_url"
-            id="image-description"
+            id="image-url"
             type="url"
             name="url"
             placeholder="Image URL"
             required
           />
-          <span
-            class="modal__error modal__button_disabled"
-            id="image-description-error"
-          ></span>
+          <span class="modal__error" id="image-url-error"></span>
           <button
-            class="modal__save_button"
+            class="modal__save--button"
             id="add-save-btn"
             type="submit"
             disabled
@@ -121,21 +115,15 @@
         </form>
       </div>
     </div>
+
     <div class="modal" id="image-modal">
       <div class="modal__container modal__container--image">
-        <button
-          class="modal__close modal__close--image"
-          id="modal-close-btn"
-        ></button>
-        <img
-          class="modal__image"
-          id="modal-image"
-          src=""
-          alt="Expanded Image"
-        />
+        <button class="modal__close modal__close--image" data-modal-close></button>
+        <img class="modal__image" id="modal-image" src="#" alt="Expanded View" />
         <h3 class="modal__description" id="modal-image-description"></h3>
       </div>
     </div>
+
     <template id="card-template">
       <li class="card">
         <img src="" alt="" class="card__image" />
@@ -146,6 +134,7 @@
         </div>
       </li>
     </template>
+
     <script src="./pages/index.js" type="module"></script>
   </body>
 </html>

@@ -101,16 +101,17 @@
   border-color: #ff0000;
 }
 
-.modal__save_button {
+.modal__save--button {
   background-color: #000000;
   color: #ffffff;
   margin-top: 35px;
+  font-size: 18px;
   width: 360px;
   height: 50px;
   cursor: pointer;
 }
 
-.modal__save_button_disabled {
+.modal__save_button--disabled {
   background-color: #ffffff;
   color: rgb(84 84 84 / 0.2);
 }
@@ -151,8 +152,9 @@
     padding-bottom: 45px;
   }
 
-  .modal__save_button {
+  .modal__save--button {
     max-width: 220px;
     margin-top: auto;
+    margin-top: 30px;
   }
 }
