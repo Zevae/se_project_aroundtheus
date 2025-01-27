@@ -2,23 +2,21 @@ export default class FormValidator {
   constructor(config, formElement) {
     this._config = config;
     this._formElement = formElement;
+    this._submitButton = this._formElement.querySelector(this._config.submitButtonSelector);
+    this._inactiveButtonClass = this._config.inactiveButtonClass;
     this._inputList = Array.from(this._formElement.querySelectorAll(this._config.inputSelector));
     this._buttonElement = this._formElement.querySelector(this._config.submitButtonSelector);
   }
 
-  _disableButton() {
-    if (this._buttonElement) {
-      this._buttonElement.disabled = true;
-      this._buttonElement.classList.add(this._config.inactiveButtonClass);
-    } else {
-      console.error('Submit button element is null. Check the selector in the configuration.');
-    }
+  disableButton() {
+    this._submitButton.classList.add(this._inactiveButtonClass);
+    this._submitButton.disabled = true;
   }
 
   _toggleButtonState() {
     const hasInvalidInput = this._inputList.some((inputElement) => !inputElement.validity.valid);
     if (hasInvalidInput) {
-      this._disableButton();
+      this.disableButton();
     } else {
       if (this._buttonElement) {
         this._buttonElement.disabled = false;
