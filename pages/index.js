@@ -144,6 +144,5 @@ const profileEditBtn = document.querySelector("#profile-edit-btn");
 profileEditBtn.addEventListener("click", () => {
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileDescription.textContent;
-  profileFormValidator.resetValidation();
   openModal(profileEditModal);
 });
