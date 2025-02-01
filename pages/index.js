@@ -1,5 +1,5 @@
 import Card from "../components/Card.js";
-import FormValidator from '../components/FormValidator.js';
+import FormValidator from "../components/FormValidator.js";
 
 const initialCards = [
   {
@@ -41,6 +41,12 @@ const jobInput = profileFormElement.querySelector(
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const closeButtons = document.querySelectorAll(".modal__close");
+const modalImage = document.querySelector("#modal-image");
+const modalImageDescription = document.querySelector(
+  "#modal-image-description"
+);
+const titleInput = addCardFormElement.querySelector(".modal__input_type_title");
+const urlInput = addCardFormElement.querySelector(".modal__input_type_url");
 
 const config = {
   inputSelector: ".modal__input",
@@ -88,9 +94,6 @@ function handleOverlayClick(event) {
 }
 
 function openImageModal(src, description) {
-  const modalImage = document.querySelector("#modal-image");
-  const modalImageDescription = document.querySelector("#modal-image-description");
-
   modalImage.src = src;
   modalImage.alt = description;
   modalImageDescription.textContent = description;
@@ -110,17 +113,14 @@ initialCards.forEach((cardData) => {
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
 
-  const titleInput = addCardFormElement.querySelector(".modal__input_type_title");
-  const urlInput = addCardFormElement.querySelector(".modal__input_type_url");
-
   const title = titleInput.value;
   const link = urlInput.value;
   const newCard = createCard({ name: title, link: link });
 
   cardWrap.prepend(newCard);
-evt.target.reset(); 
-addCardFormValidator.disableButton(); 
-closeModal(addCardModal);
+  evt.target.reset();
+  closeModal(addCardModal);
+  addCardFormValidator.disableButton();
 }
 
 function handleProfileEditSubmit(evt) {
@@ -144,5 +144,7 @@ const profileEditBtn = document.querySelector("#profile-edit-btn");
 profileEditBtn.addEventListener("click", () => {
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileDescription.textContent;
+  profileFormValidator.resetValidation();
+
   openModal(profileEditModal);
 });
