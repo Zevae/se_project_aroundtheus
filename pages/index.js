@@ -136,7 +136,6 @@ profileFormElement.addEventListener("submit", handleProfileEditSubmit);
 
 const addNewCardButton = document.querySelector(".profile__add-button");
 addNewCardButton.addEventListener("click", () => {
-  addCardFormValidator.disableButton();
   openModal(addCardModal);
 });
 
