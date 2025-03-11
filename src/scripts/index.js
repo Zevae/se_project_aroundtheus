@@ -1,7 +1,9 @@
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
+import Section from "./Section.js";
+import PopupWithForm from "./PopupWithForm.js";
 import "../pages/index.css";
-
+// Left at "PopupWithImage.js" being implemented into "index.js".
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -29,7 +31,6 @@ const initialCards = [
   },
 ];
 
-const cardWrap = document.querySelector(".cards__list");
 const profileEditModal = document.querySelector("#edit-modal");
 const addCardModal = document.querySelector("#add-modal");
 const imageModal = document.querySelector("#image-modal");
@@ -101,24 +102,33 @@ function openImageModal(src, description) {
   openModal(imageModal);
 }
 
-function createCard(cardData) {
-  const card = new Card(cardData, "#card-template", openImageModal);
-  return card.getView();
-}
+const cardSection = new Section(
+  {
+    items: initialCards,
+    renderer: (cardData) => {
+      const card = new Card(cardData, "#card-template", openImageModal);
+      const cardElement = card.getView();
+      cardSection.addItem(cardElement);
+    },
+  },
+  ".cards__list"
+);
 
-initialCards.forEach((cardData) => {
-  const cardElement = createCard(cardData);
-  cardWrap.prepend(cardElement);
-});
+cardSection.renderItems();
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
 
   const title = titleInput.value;
   const link = urlInput.value;
-  const newCard = createCard({ name: title, link: link });
+  const newCard = new Card(
+    { name: title, link: link },
+    "#card-template",
+    openImageModal
+  );
+  const cardElement = newCard.getView();
 
-  cardWrap.prepend(newCard);
+  cardSection.addItem(cardElement);
   evt.target.reset();
   closeModal(addCardModal);
   addCardFormValidator.disableButton();
