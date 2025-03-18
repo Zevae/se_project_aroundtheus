@@ -1,31 +1,16 @@
 import Popup from "./Popup.js";
 
-class PopupWithForm extends Popup {
-  constructor({ popupSelector, handleFormSubmit }) {
-    super({ popupSelector });
-    this._handleFormSubmit = handleFormSubmit;
-    this._formElement = this._popupElement.querySelector(".modal__form");
+export default class PopupWithImage extends Popup {
+  constructor(popupSelector) {
+    super(popupSelector);
+    this._image = this._popupElement.querySelector(".modal__image");
+    this._caption = this._popupElement.querySelector(".modal__description");
   }
 
-  _getInputValues() {
-    this._inputList = this._formElement.querySelectorAll(".modal__input");
-    this._formValues = {};
-    this._inputList.forEach((input) => {
-      this._formValues[input.name] = input.value;
-    });
-    return this._formValues;
-  }
-
-  setEventListeners() {
-    super.setEventListeners();
-    this._formElement.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-      this._handleFormSubmit(this._getInputValues());
-    });
-  }
-
-  close() {
-    super.close();
-    this._formElement.reset();
+  open({ name, link }) {
+    this._image.src = link;
+    this._image.alt = name;
+    this._caption.textContent = name;
+    super.open();
   }
 }

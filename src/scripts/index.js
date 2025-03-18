@@ -1,9 +1,10 @@
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
 import Section from "./Section.js";
-import PopupWithForm from "./PopupWithForm.js";
+import PopupWithImage from "./PopupWithImage.js";
 import "../pages/index.css";
-// Left at "PopupWithImage.js" being implemented into "index.js".
+import UserInfo from "./UserInfo.js";
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -62,6 +63,10 @@ const profileFormValidator = new FormValidator(config, profileFormElement);
 const addCardFormValidator = new FormValidator(config, addCardFormElement);
 profileFormValidator.enableValidation();
 addCardFormValidator.enableValidation();
+
+const popupWithImage = new PopupWithImage({
+  popupSelector: "#image-modal",
+});
 
 closeButtons.forEach((button) => {
   const modal = button.closest(".modal");
@@ -134,13 +139,31 @@ function handleAddCardSubmit(evt) {
   addCardFormValidator.disableButton();
 }
 
+const userInfo = new UserInfo({
+  nameSelector: ".profile__title",
+  jobSelector: ".profile__description",
+});
+
 function handleProfileEditSubmit(evt) {
   evt.preventDefault();
 
-  profileTitle.textContent = nameInput.value;
-  profileDescription.textContent = jobInput.value;
+  const newName = nameInput.value;
+  const newJob = jobInput.value;
+
+  userInfo.setUserInfo(newName, newJob);
+
   closeModal(profileEditModal);
 }
+
+const profileEditBtn = document.querySelector("#profile-edit-btn");
+profileEditBtn.addEventListener("click", () => {
+  const { name, job } = userInfo.getUserInfo();
+  nameInput.value = name;
+  jobInput.value = job;
+
+  profileFormValidator.resetValidation();
+  openModal(profileEditModal);
+});
 
 addCardFormElement.addEventListener("submit", handleAddCardSubmit);
 profileFormElement.addEventListener("submit", handleProfileEditSubmit);
@@ -148,13 +171,4 @@ profileFormElement.addEventListener("submit", handleProfileEditSubmit);
 const addNewCardButton = document.querySelector(".profile__add-button");
 addNewCardButton.addEventListener("click", () => {
   openModal(addCardModal);
-});
-
-const profileEditBtn = document.querySelector("#profile-edit-btn");
-profileEditBtn.addEventListener("click", () => {
-  nameInput.value = profileTitle.textContent;
-  jobInput.value = profileDescription.textContent;
-  profileFormValidator.resetValidation();
-
-  openModal(profileEditModal);
 });
