@@ -1,6 +1,8 @@
 export default class Popup {
   constructor({ popupSelector }) {
     this._popupElement = document.querySelector(popupSelector);
+    this._handleEscKey = this._handleEscKey.bind(this);
+    this._handleOverlayClick = this._handleOverlayClick.bind(this);
   }
 
   open() {
@@ -20,10 +22,13 @@ export default class Popup {
 
   _handleEscKey(event) {
     if (event.key === "Escape" || event.key === "Esc") {
-      const openModal = document.querySelector(".modal_opened");
-      if (openModal) {
-        this.close(openModal);
-      }
+      this.close();
+    }
+  }
+
+  _handleOverlayClick(event) {
+    if (event.target === this._popupElement) {
+      this.close();
     }
   }
 
