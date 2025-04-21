@@ -22,6 +22,13 @@ import {
 } from "../utils/constants.js";
 import "../pages/index.css";
 
+function createCard(cardData) {
+  const cardElement = new Card(cardData, "#card-template", (src, text) => {
+    popupWithImage.open({ name: text, link: src });
+  });
+  return cardElement.getView();
+}
+
 const profileFormValidator = new FormValidator(config, profileFormElement);
 const addCardFormValidator = new FormValidator(config, addCardFormElement);
 profileFormValidator.enableValidation();
@@ -49,12 +56,8 @@ profileFormPopup.setEventListeners();
 const addCardFormPopup = new PopupWithForm({
   popupSelector: cardPopupSelector,
   handleFormSubmit: (formData) => {
-    const newCard = new Card(
-      { name: formData.title, link: formData.url },
-      "#card-template",
-      (src, text) => popupWithImage.open({ name: text, link: src })
-    );
-    cardSection.addItem(newCard.getView());
+    const newCard = createCard({ name: formData.title, link: formData.url });
+    cardSection.addItem(newCard);
     addCardFormValidator.disableButton();
     addCardFormPopup.close();
   },
@@ -65,14 +68,13 @@ const cardSection = new Section(
   {
     items: initialCards,
     renderer: (cardData) => {
-      const card = new Card(cardData, "#card-template", (src, text) => {
-        popupWithImage.open({ name: text, link: src });
-      });
-      cardSection.addItem(card.getView());
+      const newCard = createCard(cardData);
+      cardSection.addItem(newCard);
     },
   },
   cardSectionSelector
 );
+
 cardSection.renderItems();
 
 profileEditBtn.addEventListener("click", () => {
