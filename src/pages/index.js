@@ -89,5 +89,3 @@ addNewCardButton.addEventListener("click", () => {
   addCardFormValidator.resetValidation();
   addCardFormPopup.open();
 });
-
-//New branch
