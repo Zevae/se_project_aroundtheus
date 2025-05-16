@@ -21,6 +21,7 @@ import {
   userJobSelector,
 } from "../utils/constants.js";
 import "../pages/index.css";
+import Api from "../components/Api.js";
 
 function createCard(cardData) {
   const cardElement = new Card(cardData, "#card-template", (src, text) => {
@@ -89,3 +90,31 @@ addNewCardButton.addEventListener("click", () => {
   addCardFormValidator.resetValidation();
   addCardFormPopup.open();
 });
+
+fetch("https://around-api.en.tripleten-services.com/v1/cards", {
+  headers: {
+    authorization: "aa44e237-4659-4ef9-ad84-33fb97a8d925",
+  },
+})
+  .then((res) => res.json())
+  .then((result) => {
+    console.log(result);
+  });
+
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "c56e30dc-2883-4270-a59e-b2f7bae969c6",
+    "Content-Type": "application/json",
+  },
+});
+
+Promise.all([api.getUserInfo(), api.getInitialCards()])
+  .then(([userData, cards]) => {
+    userInfo.setUserInfo({ name: userData.name, about: userData.about });
+    userInfo.setUserAvatar(userData.avatar);
+    cardSection.renderItems(cards);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
