@@ -73,15 +73,15 @@ const cardSection = new Section(
       cardSection.addItem(newCard);
     },
   },
-  cardSectionSelector
+  cardSectionSelector,
 );
 
 cardSection.renderItems();
 
 profileEditBtn.addEventListener("click", () => {
-  const { name, job } = userInfo.getUserInfo();
-  nameInput.value = name;
-  jobInput.value = job;
+  const { title, description } = userInfo.getUserInfo();
+  nameInput.value = title;
+  jobInput.value = description;
   profileFormValidator.resetValidation();
   profileFormPopup.open();
 });
@@ -93,21 +93,13 @@ addNewCardButton.addEventListener("click", () => {
 
 fetch("https://around-api.en.tripleten-services.com/v1/cards", {
   headers: {
-    authorization: "aa44e237-4659-4ef9-ad84-33fb97a8d925",
+    authorization: "2c8db2a6-0c21-4c28-99ab-77668cc9b409",
   },
 })
   .then((res) => res.json())
   .then((result) => {
     console.log(result);
   });
-
-const api = new Api({
-  baseUrl: "https://around-api.en.tripleten-services.com/v1",
-  headers: {
-    authorization: "c56e30dc-2883-4270-a59e-b2f7bae969c6",
-    "Content-Type": "application/json",
-  },
-});
 
 Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([userData, cards]) => {
@@ -118,3 +110,6 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
   .catch((err) => {
     console.error(err);
   });
+
+//Left off at the figma design: https://www.figma.com/design/E5x6ib3osaUUNwLRRAsTDX/Sprint-9-%E2%80%94-Applied-JavaScript?node-id=1530-2&p=f
+//Trying to get the trash icon to pop open a modal, asking if the user is sure that they want to delete the card/photo
